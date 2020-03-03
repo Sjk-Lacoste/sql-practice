@@ -1,0 +1,19 @@
+
+version: "3.3"
+services:
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_USER=sjk_lacoste
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test_db
+    volumes:
+      - ./gitignore/postgresql:/var/lib/postgresql/data
+    ports:
+      - 9000:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
